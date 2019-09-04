@@ -28,10 +28,10 @@ type UserController interface {
 	UserInfoFn(user *mcm_google_sso.GoogleOauthUser) (string, error)
 }
 
-func initRouter() error {
+func initRouter() {
 	oauth, err := mcm_google_sso.NewGoogleOAuth(ConfigController, RedirectsController, UserController).GetGoogleAuthHandler()
     	if err != nil {
-    		return nil, err
+    		log.Fatal(err)
     	}
         http.HandleFunc("/google/login", oauth.LoginHandler)
 	http.HandleFunc("/google/callback", oauth.CallbackHandler) // callback url from redirects
