@@ -1,5 +1,7 @@
 # GoLang Google SSO handlers
 
+[![CircleCI](https://circleci.com/gh/PxyUp/google-sso-handlers/tree/master.svg?style=svg)]
+
 Package for creating authorization with Google on GoLang, can be use in any frameworks.
 Have protection from csrf attack.
 
