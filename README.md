@@ -1,9 +1,9 @@
 # GoLang Google SSO handlers
 
-[![CircleCI](https://circleci.com/gh/PxyUp/google-sso-handlers/tree/master.svg?style=svg)]
+![CircleCI](https://circleci.com/gh/PxyUp/google-sso-handlers/tree/master.svg?style=svg)
 
 Package for creating authorization with Google on GoLang, can be use in any frameworks.
-Have protection from csrf attack.
+Have protection from CSRF attack.
 
 # Usage
 
@@ -12,19 +12,27 @@ Have protection from csrf attack.
 ```go
 
 type ConfigController interface {
-	GetHost() string
-	GetClientId() string
-	GetClientSecret() string
-	GetRandomBytesLength() int
+	// Get Host address
+	GetHost() string 
+	// from google console
+	GetClientId() string 
+	// from google console
+	GetClientSecret() string 
+	// for generate secret storage
+	GetRandomBytesLength() int 
 }
 
 type RedirectsController interface {
-	GetSuccessRedirectUrl(token string) string
-	GetFailedRedirectUrl(errCode int, err error) string
-	GetCallbackUrl() string
+	// get redirect url without host
+	GetSuccessRedirectUrl(token string) string 
+	// get redirect url without host
+	GetFailedRedirectUrl(errCode int, err error) string 
+	// google will be call that url after success login, without host (need provided in google console with host)
+	GetCallbackUrl() string 
 }
 
 type UserController interface {
+	// function must return token(jwt, any access token, and we be passed to RedirectsController.GetSuccessRedirectUrl function
 	UserInfoFn(user *mcm_google_sso.GoogleOauthUser) (string, error)
 }
 
