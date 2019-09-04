@@ -50,5 +50,5 @@ func initRouter() {
 
 
 # Examples
-- [HTTP](https://github.com/PxyUp/google-sso-handlers/examples/http/main.go)
-- [GIN](https://github.com/PxyUp/google-sso-handlers/examples/gin/main.go)
+- [HTTP](https://github.com/PxyUp/google-sso-handlers/tree/master/example/http/main.go)
+- [GIN](https://github.com/PxyUp/google-sso-handlers/tree/master/example/gin/main.go)
